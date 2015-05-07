@@ -8,6 +8,16 @@
 </head>
 <body>
 
+	<% if current_user %>
+<p>
+		Welcome Back, <%= current_user.username.capitalize %>
+		<%= link_to 'Log Out', sessions_path, method: :delete %>
+	<% else %>
+		<%= link_to 'Sign Up', new_user_path %>
+		<%= link_to 'Log In', sessions_new_path %>
+	<% end %>
+</p>
+
 <%= yield %>
 
 </body>
