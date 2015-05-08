@@ -1,1 +1,10 @@
 <h1><%= current_user.name %></h1>
+
+<% @user.articles.each do |article| %>
+	<div class="single-article">
+	<h2><%= article.title %></h2>
+	<h3><%= article.author %></h3>
+	<p><%= article.comments %><p>
+		<%= link_to "View", article_path(article) %>
+	</div>
+<% end %>

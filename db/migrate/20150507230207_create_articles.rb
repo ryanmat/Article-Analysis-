@@ -5,6 +5,7 @@ class CreateArticles < ActiveRecord::Migration
     	t.string :author
     	t.string :web_url
     	t.string :comments
+    	t.intger :user_id
 
     	t.timestamps
     end

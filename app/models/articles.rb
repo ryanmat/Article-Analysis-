@@ -1,3 +1,3 @@
 class Article < ActiveRecord::Base
-	belongs_to_many :artists
+	belongs_to_many :user
 end
