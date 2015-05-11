@@ -21,6 +21,7 @@ ActiveRecord::Schema.define(version: 20150507230207) do
     t.string   "author"
     t.string   "web_url"
     t.string   "comments"
+    t.integer  "user_id"
     t.datetime "created_at"
     t.datetime "updated_at"
   end

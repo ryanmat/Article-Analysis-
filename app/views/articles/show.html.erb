@@ -1,0 +1,12 @@
+<div class="single-article">
+	<h2><%= @article.title %></h2>
+
+	<a href='<%= @article.web_url %>'>Article URL</a>
+
+	<p><%= @article.author %></p>
+	<p><%= @article.comments %></p>
+
+
+	<%= link_to 'Delete Article', article_path(@article), method: :delete %>
+
+</div>

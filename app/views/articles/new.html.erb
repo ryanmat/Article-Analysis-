@@ -1,15 +1,17 @@
 <h2>Article Submit</h2>
-<form action="<%= articles_path %>" method="post">
-	<label for="title">Article Title<br>
-		<input type="text" name="article[title]">
-	</label><br>
-	<label for="author">Author<br>
-		<input type="text" name="article[author]">
-	</label><br>
-	<label for="web_url">Link<br>
-		<input type="text" name="article[web_url]">
-	</label><br>
-	<label for="comments" name="article[comments]">
-	</label><br>
-	<button class="submit" name="submit">
-	</form>
+<%= form_for @article do |f| %>
+	<%= f.label :title %><br>
+	<%= f.text_area :title, :cols => "60" %><br>
+	<br>
+	<%= f.label :author %><br>
+	<%= f.text_area :author, :cols => "30" %><br>
+	<br>
+	<%= f.label :web_url %><br>
+	<%= f.text_area :web_url, :cols => "80" %><br>
+	<br>
+	<%= f.label :comments %><br>
+	<%= f.text_area :comments, :cols => "80", :rows => "20" %><br>
+	<br>
+	<%= f.submit %>
+
+	<% end %>
