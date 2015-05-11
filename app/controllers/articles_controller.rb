@@ -22,11 +22,19 @@ class ArticlesController < ApplicationController
 	end
 
 	def create
-		@article = Article.new(article_params)
+		@user = User.find(session[:current_user])
+
+		@article = Article.new({
+			title: article_params[:title],
+			author: article_params[:author],
+			web_url: article_params[:web_url],
+			comments: article_params[:comments],
+			user_id: @user.id
+			})
 
 		if @article.save
 			respond_to do |format|
-				format.html {redirect_to article_path}
+				format.html {redirect_to articles_path}
 				format.json {render json: @article}
 			end
 		else
@@ -34,6 +42,17 @@ class ArticlesController < ApplicationController
 				format.html {render :new}
 				format.json {render json: {error: 'Can not be created'}}
 			end
+		end
+	end
+
+	def destroy
+		@user = User.find(session[:current_user])
+		@article = Article.find(params[:id])
+		@article.destroy
+
+		respond_to do |format|
+			format.html { redirect_to user_path(@user.id) }
+			format.json { render json: @article }
 		end
 	end
 
