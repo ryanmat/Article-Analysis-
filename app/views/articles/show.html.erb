@@ -6,6 +6,10 @@
 	<p><%= @article.author %></p>
 	<p><%= @article.comments %></p>
 
+	<% alchemyapi = AlchemyAPI.new() %>
+	<% response = alchemyapi.sentiment("url", @article.web_url) %>
+	<%= response["docSentiment"]["type"] %>
+	<br>
 
 	<%= link_to 'Delete Article', article_path(@article), method: :delete %>
 
