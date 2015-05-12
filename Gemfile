@@ -1,5 +1,8 @@
 source 'https://rubygems.org'
 
+# Gemfile for AlchemyAPI Ruby SDK
+gem "json"
+
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.2.1'
