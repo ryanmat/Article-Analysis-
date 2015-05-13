@@ -1,8 +1,8 @@
-require './alchemyapi'
+require './alchemy_api'
 alchemyapi = AlchemyAPI.new()
 
 # myText = "i can't tell whether i like or dislike!"
-myUrl = "http://www.nytimes.com/2015/05/13/business/dealbook/verizon-to-buy-aol-for-4-4-billion.html?hp&action=click&pgtype=Homepage&module=first-column-region&region=top-news&WT.nav=top-news&_r=0"
+myUrl = "http://www.bloomberg.com/news/articles/2015-05-13/the-koch-brothers-lost-more-than-1-billion-yesterday-each"
 
 response = alchemyapi.entities("url", myUrl, {'sentiment'=>1})
 # puts "type: " + response["docSentiment"]["type"]

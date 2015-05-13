@@ -1,4 +1,5 @@
-<div class="single-article">
+<div class="article-show">
+	<div class="single-article">
 	<h2><%= @article.title %></h2>
 
 	<a href='<%= @article.web_url %>'>Article URL</a>
@@ -7,10 +8,29 @@
 	<p><%= @article.comments %></p>
 
 	<% alchemyapi = AlchemyAPI.new() %>
-	<% response = alchemyapi.sentiment("url", @article.web_url) %>
-	<%= response["docSentiment"]["type"] %>
+	<% response = alchemyapi.entities("url", @article.web_url, {'sentiment'=>1}) %>
+	
+	<% if response['status'] == 'OK' %>
+	<% JSON.pretty_generate(response) %>
+
+	<% response = response['entities'] %>
+	<% responseParse = response.map do |data| %>
+	 <% { type: data['type'],
+	 			relevance: data['relevance'],
+	 			sentiment: data['sentiment'],
+	 			count: data['count'],
+	 			text: data['text'] } %>
+	<% end %>
+	<% end %>
+
+	<%= responseParse %>
+
+	
 	<br>
+	<br>
+	
+
 
 	<%= link_to 'Delete Article', article_path(@article), method: :delete %>
-
+	</div>
 </div>
