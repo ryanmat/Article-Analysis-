@@ -1,7 +1,7 @@
 <h1><%= current_user.name %></h1>
 <p><%= link_to "Submit Article", new_article_path %></p>
 
-<% @user.articles.each do |article| %>
+<% current_user.articles.each do |article| %>
 <div class="single-article">
 	<h2><%= article.title %></h2>
 	<h4><%= article.author %></h4>
