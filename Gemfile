@@ -3,10 +3,6 @@ source 'https://rubygems.org'
 # Gemfile for AlchemyAPI Ruby SDK
 gem "json"
 
-#Heroku
-gem 'rails_12factor', group: :production
-
-
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.2.1'
@@ -55,5 +51,8 @@ group :development, :test do
 end
 
 gem 'httparty'
+
+#Heroku
+gem 'rails_12factor', group: :production
 
 ruby "2.1.2"
