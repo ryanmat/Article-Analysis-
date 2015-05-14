@@ -26,7 +26,7 @@ class UsersController < ApplicationController
 
 		if @user.save
 			respond_to do |format|
-				format.html {redirect_to users_path}
+				format.html {redirect_to sessions_new_path}
 				format.json {render json: @user}
 			end
 		else

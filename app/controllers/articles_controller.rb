@@ -34,7 +34,7 @@ class ArticlesController < ApplicationController
 
 		if @article.save
 			respond_to do |format|
-				format.html {redirect_to articles_path}
+				format.html {redirect_to user_path(@user.id)}
 				format.json {render json: @article}
 			end
 		else

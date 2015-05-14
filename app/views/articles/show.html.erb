@@ -14,22 +14,20 @@
 	<% JSON.pretty_generate(response) %>
 
 	<% response = response['entities'] %>
-	<% responseParse = response.map do |data| %>
-	 <% { type: data['type'],
-	 			relevance: data['relevance'],
-	 			sentiment: data['sentiment'],
-	 			count: data['count'],
-	 			text: data['text'] } %>
+	<% response.each do |data| %>
+		<div class='parsed-data'>
+			<li>name: <%= data['disambiguated'][:name] %></li>
+			<li>type: <%= data['type'] %></li>
+			<li>relevance: <%= data['relevance'] %></li>
+			<li>sentiment: <%= data['sentiment']['type'] %></li>
+			<li>text: <%= data['text'] %></li>
+			<li>count: <%= data['count'] %></li>
+
+		</div>
 	<% end %>
 	<% end %>
-
-	<%= responseParse %>
-
 	
-	<br>
-	<br>
-	
-
+	<hr>
 
 	<%= link_to 'Delete Article', article_path(@article), method: :delete %>
 	</div>
