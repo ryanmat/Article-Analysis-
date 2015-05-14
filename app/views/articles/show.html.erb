@@ -2,10 +2,12 @@
 	<div class="single-article">
 	<h2><%= @article.title %></h2>
 
-	<a href='<%= @article.web_url %>'>Article URL</a>
-
-	<p><%= @article.author %></p>
-	<p><%= @article.comments %></p>
+	<a href='<%= @article.web_url %>'>ARTICLE URL</a><br>
+	<br>
+	<div="author-body">
+	<p><%= 'AUTHOR: ' + @article.author.upcase %></p>
+	<p><%= 'USER NOTES: ' + @article.comments %></p>
+	</div>
 
 	<% alchemyapi = AlchemyAPI.new() %>
 	<% response = alchemyapi.entities("url", @article.web_url, {'sentiment'=>1}) %>
@@ -16,12 +18,13 @@
 	<% response = response['entities'] %>
 	<% response.each do |data| %>
 		<div class='parsed-data'>
-			<li>name: <%= data['disambiguated'][:name] %></li>
+			<li>name: <%= data['disambiguated'] %></li>
 			<li>type: <%= data['type'] %></li>
 			<li>relevance: <%= data['relevance'] %></li>
 			<li>sentiment: <%= data['sentiment']['type'] %></li>
 			<li>text: <%= data['text'] %></li>
 			<li>count: <%= data['count'] %></li>
+			<hr>
 
 		</div>
 	<% end %>

@@ -1,12 +1,13 @@
 <div class="user">
 <h1><%= current_user.name %></h1>
-<p><%= link_to "Submit Article", new_article_path %></p>
+<p><%= link_to "SUBMIT ARTICLE", new_article_path %></p>
 
 <% @user.articles.each do |article| %>
 <div class="single-article">
 	<h2><%= article.title %></h2>
-	<h4><%= article.author %></h4>
-	<%= link_to "View Article", article_path(article) %>
+	<h4><%= 'Author: ' + article.author %></h4>
+	<%= link_to "VIEW ARTICLE", article_path(article) %><br>
+	<hr>
 </div>
 <% end %>
 </div>
