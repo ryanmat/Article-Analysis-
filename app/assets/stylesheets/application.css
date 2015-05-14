@@ -65,7 +65,7 @@ p {
 }
 
 a {
-    color: darkred;
+    color: seagreen;
     -webkit-transition: all .2s ease-in-out;
     -moz-transition: all .2s ease-in-out;
     transition: all .2s ease-in-out;
@@ -170,7 +170,7 @@ a:focus {
     padding: 100px 0;
     text-align: center;
     color: #fff;
-    background-color: lightslategrey;
+    background-color: darkgrey;
 }
 
 .intro .intro-body {

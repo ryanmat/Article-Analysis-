@@ -1,4 +1,4 @@
-require './alchemy_api'
+# require './alchemy_api'
 alchemyapi = AlchemyAPI.new()
 
 # myText = "i can't tell whether i like or dislike!"
