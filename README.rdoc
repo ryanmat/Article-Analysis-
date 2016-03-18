@@ -1,1 +1,1 @@
-# Article Analysis ... under construction
+Insert Articles, get pertinent information back.
